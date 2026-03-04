@@ -16,7 +16,7 @@ export default function BentoCard({
     <div
       className={clsx(
         // base styles
-        "rounded-2xl p-8 flex flex-col gap-4 transition-all",
+        "rounded-2xl flex flex-col gap-4 transition-all",
         // variants
         {
           "bg-card border border-border":

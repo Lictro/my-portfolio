@@ -4,9 +4,9 @@ import { EnvelopeSimpleIcon, GithubLogoIcon, LinkedinLogoIcon, ReadCvLogoIcon } 
 import BentoCard from "./BentoCard";
 import IconButton from "./IconButton";
 
-export default function MeCard() {
+export default function MeCard({ className }: { className?: string }) {
   return (
-    <BentoCard className="col-span-8 row-span-4 justify-between">
+    <BentoCard className={`justify-between ${className}`}>
       {/* TOP CONTENT */}
       <div className="space-y-4">
         <h1 className="text-4xl font-semibold text-slate-200">

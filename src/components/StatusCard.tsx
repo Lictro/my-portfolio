@@ -43,13 +43,15 @@ const STATUS_CONFIG: Record<
 
 export default function StatusCard({
   status = "available",
+  className
 }: {
   status?: Status;
+  className?: string;
 }) {
   const config = STATUS_CONFIG[status];
   const details = "Returning on September 1st";
   return (
-    <BentoCard className="col-span-4 row-span-1">
+    <BentoCard className={`${className}`}>
       <div className="flex items-center h-full">
         <div className="flex items-center gap-2 text-sm">
           {/* blinking dot */}
@@ -70,7 +72,7 @@ export default function StatusCard({
           </span>
 
           <div className="ml-1">
-            <h1 className="text-lg font-bold">{config.label}</h1>
+            <h1 className="text-lg font-bold text-slate-200">{config.label}</h1>
             <p className="text-sm text-muted-foreground">{details}</p>
           </div>
         </div>
