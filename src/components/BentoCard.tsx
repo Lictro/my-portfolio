@@ -4,7 +4,7 @@ import clsx from "clsx";
 interface BentoCardProps {
   children: ReactNode;
   className?: string;
-  variant?: "default" | "accent";
+  variant?: "default" | "accent" | "spotify";
 }
 
 export default function BentoCard({
@@ -24,6 +24,8 @@ export default function BentoCard({
 
           "bg-[#112240] border border-[#233554]":
             variant === "accent",
+          "border border-transparent ":
+            variant === "spotify",
         },
         className
       )}

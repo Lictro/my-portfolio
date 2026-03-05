@@ -2,6 +2,7 @@ import { AboutCard } from "./AboutCard";
 import BentoCard from "./BentoCard";
 import { BuiltWithCard } from "./BuiltWithCard";
 import MeCard from "./MeCard";
+import { SpotifyCard } from "./SpotifyCard";
 import StatusCard from "./StatusCard";
 import { TimeCard } from "./TimeCard";
 
@@ -21,9 +22,7 @@ export default function BentoGrid() {
 
         <StatusCard className="col-span-4 row-span-1 p-8" status="vacation" />
 
-        <BentoCard className="col-span-4 row-span-1">
-          <h2>Spotify</h2>
-        </BentoCard>
+        <SpotifyCard className="col-span-4 row-span-1 p-4" />
 
         <BentoCard className="col-span-4 row-span-1">
           <h2>Stack</h2>
