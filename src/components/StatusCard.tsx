@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import BentoCard from "./BentoCard";
 import clsx from "clsx";
+import { supabase } from "@/lib/supabase";
 
 type Status =
   | "available"
@@ -41,17 +43,54 @@ const STATUS_CONFIG: Record<
   },
 };
 
-export default function StatusCard({
-  status = "available",
-  className
-}: {
-  status?: Status;
-  className?: string;
-}) {
-  const config = STATUS_CONFIG[status];
-  const details = "Returning on September 1st";
+function StatusCardLoading({ className }: { className?: string }) {
   return (
-    <BentoCard className={`${className}`}>
+    <BentoCard className={className}>
+      <div className="relative flex items-center gap-3 min-h-[48px] animate-pulse">
+        <div className="h-2.5 w-2.5 rounded-full bg-slate-500" />
+
+        <div className="flex flex-col gap-2">
+          <div className="h-4 w-36 rounded bg-slate-600" />
+          <div className="h-3 w-52 rounded bg-slate-700" />
+        </div>
+      </div>
+    </BentoCard>
+  );
+}
+
+export default function StatusCard({ className }: { className?: string }) {
+  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState<Status>("available");
+  const [reason, setReason] = useState("");
+
+  useEffect(() => {
+    const fetchStatus = async () => {
+      const { data } = await supabase
+        .from("status")
+        .select("status, reason")
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .single();
+
+        console.log("Fetched status:", data);
+
+      if (data) {
+        setStatus(data.status);
+        setReason(data.reason);
+      }
+
+      setLoading(false);
+    };
+
+    fetchStatus();
+  }, []);
+
+  if (loading) return <StatusCardLoading className={className} />;
+
+  const config = STATUS_CONFIG[status];
+
+  return (
+    <BentoCard className={className}>
       <div className="flex items-center h-full">
         <div className="flex items-center gap-2 text-sm">
           {/* blinking dot */}
@@ -72,8 +111,13 @@ export default function StatusCard({
           </span>
 
           <div className="ml-1">
-            <h1 className="text-lg font-bold text-slate-200">{config.label}</h1>
-            <p className="text-sm text-muted-foreground">{details}</p>
+            <h1 className="text-lg font-bold text-slate-200">
+              {config.label}
+            </h1>
+
+            <p className="text-sm text-muted-foreground">
+              {reason}
+            </p>
           </div>
         </div>
       </div>

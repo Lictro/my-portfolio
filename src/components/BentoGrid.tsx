@@ -20,7 +20,7 @@ export default function BentoGrid() {
           <h2>Projects</h2>
         </BentoCard>
 
-        <StatusCard className="col-span-4 row-span-1 p-8" status="vacation" />
+        <StatusCard className="col-span-4 row-span-1 p-4"/>
 
         <SpotifyCard className="col-span-4 row-span-1 p-4" />
 
