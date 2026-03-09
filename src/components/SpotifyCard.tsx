@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import BentoCard from "./BentoCard";
-import { SpotifyLogoIcon } from "@phosphor-icons/react";
-import useSWR from "swr";
+import BentoCard from './BentoCard';
+import { SpotifyLogoIcon } from '@phosphor-icons/react';
+import useSWR from 'swr';
 
-const fetcher = (url: string) => fetch(url).then(r => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 export function SpotifyCard({ className }: { className?: string }) {
-  const { data, isLoading } = useSWR("/api/spotify", fetcher);
+  const { data, isLoading } = useSWR('/api/spotify', fetcher);
 
-  const songName = data?.songName ?? "Nothing playing";
-  const artistName = data?.artistName ?? "Spotify";
+  const songName = data?.songName ?? 'Nothing playing';
+  const artistName = data?.artistName ?? 'Spotify';
   const albumCover = data?.albumCover;
   const songUrl = data?.songUrl;
 
   return (
     <BentoCard
-      variant={isLoading ? "default" : "spotify"}
+      variant={isLoading ? 'default' : 'spotify'}
       className={`relative overflow-hidden flex justify-between ${className}`}
     >
       {albumCover && !isLoading && (

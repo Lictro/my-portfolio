@@ -1,11 +1,11 @@
-"use client";
-import { ArrowUpRightIcon } from "@phosphor-icons/react";
-import BentoCard from "./BentoCard";
+'use client';
+import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import BentoCard from './BentoCard';
 
 export function MyStackCard({ className }: { className?: string }) {
   return (
     <BentoCard className={`${className} relative overflow-hidden`}>
-        <div
+      <div
         className="absolute inset-0"
         style={{
           backgroundImage: `

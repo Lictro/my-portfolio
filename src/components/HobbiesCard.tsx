@@ -1,14 +1,20 @@
-"use client";
-import { ArrowUpRightIcon } from "@phosphor-icons/react";
-import BentoCard from "./BentoCard";
+'use client';
+import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import BentoCard from './BentoCard';
 
 export function HobbiesCard({ className }: { className?: string }) {
   return (
-    <BentoCard variant="hobbies" className={`${className} relative overflow-hidden`}>
+    <BentoCard
+      variant="hobbies"
+      className={`${className} relative overflow-hidden`}
+    >
       {/* Background que llena todo */}
       <div
         className="absolute inset-0 bg-no-repeat bg-left bg-cover"
-        style={{ backgroundImage: "url('https://media.giphy.com/media/0fz5uNPHnoVHLEhAW2/giphy.gif')" }}
+        style={{
+          backgroundImage:
+            "url('https://media.giphy.com/media/0fz5uNPHnoVHLEhAW2/giphy.gif')",
+        }}
       ></div>
 
       {/* Contenido: texto a la izquierda, flecha a la derecha */}

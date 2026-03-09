@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { ReactNode } from "react";
-import clsx from "clsx";
+import Link from 'next/link';
+import { ReactNode } from 'react';
+import clsx from 'clsx';
 
 interface Props {
   href: string;
@@ -13,14 +13,14 @@ export default function IconButton({ href, children }: Props) {
       href={href}
       target="_blank"
       className={clsx(
-        "flex items-center justify-center",
-        "h-10 w-10 rounded-xl",
-        "border border-border",
-        "text-muted-foreground",
-        "transition-all duration-200",
-        "hover:text-[#64ffda]",
-        "hover:border-[#64ffda]",
-        "hover:-translate-y-0.5"
+        'flex items-center justify-center',
+        'h-10 w-10 rounded-xl',
+        'border border-border',
+        'text-muted-foreground',
+        'transition-all duration-200',
+        'hover:text-[#64ffda]',
+        'hover:border-[#64ffda]',
+        'hover:-translate-y-0.5'
       )}
     >
       {children}

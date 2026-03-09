@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "./theme.css";
+@import 'tailwindcss';
+@import './theme.css';
 
 .magicpattern {
   width: 100%;
@@ -12,4 +12,18 @@
     linear-gradient(90deg, #112240 1px, transparent 1px);
 
   background-size: 40px 40px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.out-top {
+  animation: rotate 20s linear infinite;
+  transform-origin: 13px 25px;
+}
+.in-top {
+  animation: rotate 10s linear infinite;
+  transform-origin: 13px 25px;
 }

@@ -1,4 +1,4 @@
-import BentoGrid from "@/components/BentoGrid";
+import BentoGrid from '@/components/BentoGrid';
 
 export default function Home() {
   return (

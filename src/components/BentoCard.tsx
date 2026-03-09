@@ -1,32 +1,28 @@
-import { ReactNode } from "react";
-import clsx from "clsx";
+import { ReactNode } from 'react';
+import clsx from 'clsx';
 
 interface BentoCardProps {
   children: ReactNode;
   className?: string;
-  variant?: "default" | "accent" | "spotify" | "hobbies";
+  variant?: 'default' | 'accent' | 'spotify' | 'hobbies';
 }
 
 export default function BentoCard({
   children,
   className,
-  variant = "default",
+  variant = 'default',
 }: BentoCardProps) {
   return (
     <div
       className={clsx(
         // base styles
-        "rounded-2xl flex flex-col gap-4 transition-all",
+        'rounded-2xl flex flex-col gap-4 transition-all',
         // variants
         {
-          "bg-card border border-border":
-            variant === "default",
-          "bg-[#112240] border border-[#233554]":
-            variant === "accent",
-          "border border-transparent ":
-            variant === "spotify",
-          "border border-black bg-black":
-            variant === "hobbies",
+          'bg-card border border-border': variant === 'default',
+          'bg-[#112240] border border-[#233554]': variant === 'accent',
+          'border border-transparent ': variant === 'spotify',
+          'border border-black bg-black': variant === 'hobbies',
         },
         className
       )}

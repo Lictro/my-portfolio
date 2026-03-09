@@ -1,26 +1,33 @@
-"use client";
+'use client';
 
-import { EnvelopeSimpleIcon, GithubLogoIcon, LinkedinLogoIcon, ReadCvLogoIcon } from "@phosphor-icons/react";
-import BentoCard from "./BentoCard";
-import IconButton from "./IconButton";
+import {
+  EnvelopeSimpleIcon,
+  GithubLogoIcon,
+  LinkedinLogoIcon,
+  ReadCvLogoIcon,
+} from '@phosphor-icons/react';
+import BentoCard from './BentoCard';
+import IconButton from './IconButton';
 
 export default function MeCard({ className }: { className?: string }) {
   return (
     <BentoCard className={`justify-between ${className}`}>
       {/* TOP CONTENT */}
       <div className="space-y-4">
-        <h1 className="text-4xl font-semibold text-slate-200">
-          Luis Alvarez
-        </h1>
+        <h1 className="text-4xl font-semibold text-slate-200">Luis Alvarez</h1>
 
-        <p className="text-lg text-slate-200">
-          Full Stack Software Engineer
-        </p>
+        <p className="text-lg text-slate-200">Full Stack Software Engineer</p>
 
         <p className="max-w-xl text-sm text-foreground">
-            I <span className="text-slate-200 font-medium">design</span> and <span className="text-slate-200 font-medium">build</span> clean digital experiences
-            focused on <span className="text-slate-200 font-medium">simplicity</span>, <span className="text-slate-200 font-medium">performance</span>, 
-            and <span className="text-slate-200 font-medium">thoughtful interaction</span>.
+          I <span className="text-slate-200 font-medium">design</span> and{' '}
+          <span className="text-slate-200 font-medium">build</span> clean
+          digital experiences focused on{' '}
+          <span className="text-slate-200 font-medium">simplicity</span>,{' '}
+          <span className="text-slate-200 font-medium">performance</span>, and{' '}
+          <span className="text-slate-200 font-medium">
+            thoughtful interaction
+          </span>
+          .
         </p>
       </div>
 
