@@ -6,7 +6,7 @@ export function HobbiesCard({ className }: { className?: string }) {
   return (
     <BentoCard
       variant="hobbies"
-      className={`${className} relative overflow-hidden`}
+      className={`${className} relative group overflow-hidden`}
     >
       <div
         className="absolute inset-0 bg-no-repeat bg-left bg-cover"
@@ -17,7 +17,10 @@ export function HobbiesCard({ className }: { className?: string }) {
       ></div>
       <div className="relative z-10 flex items-center justify-between h-full px-4">
         <h1 className="text-white text-xl font-semibold">Hobbies</h1>
-        <ArrowUpRightIcon size={24} color="white" />
+        <ArrowUpRightIcon
+          size={24}
+          className="transition-transform duration-300 ease-in-out text-white group-hover:text-yellow-400 group-hover:translate-x-1 group-hover:-translate-y-1"
+        />
       </div>
     </BentoCard>
   );

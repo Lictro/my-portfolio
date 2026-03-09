@@ -7,7 +7,7 @@ export function FunCard({ className }: { className?: string }) {
   return (
     <BentoCard
       variant="fun"
-      className={`${className} relative overflow-hidden`}
+      className={`${className} relative group overflow-hidden`}
     >
       <div className="absolute inset-0 z-0">
         <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
@@ -25,7 +25,10 @@ export function FunCard({ className }: { className?: string }) {
       </div>
       <div className="relative z-10 flex items-center justify-between h-full px-4">
         <h1 className="text-xl font-semibold text-[#efefd0]">Fun</h1>
-        <ArrowUpRightIcon size={24} color="#efefd0"/>
+        <ArrowUpRightIcon
+          size={24}
+          className="transition-transform duration-300 ease-in-out text-[#efefd0] group-hover:text-[#9d4edd] group-hover:translate-x-1 group-hover:-translate-y-1"
+        />
       </div>
     </BentoCard>
   );
