@@ -1,13 +1,10 @@
-'use client';
-
 import { AboutCard } from './AboutCard';
-import BentoCard from './BentoCard';
 import { BuiltWithCard } from './BuiltWithCard';
 import { FunCard } from './FunCard';
 import { HobbiesCard } from './HobbiesCard';
 import MeCard from './MeCard';
 import { MyStackCard } from './MyStackCard';
-import { MyStatsCard } from './MyStats';
+import { MyStatsCard } from './MyStatsCard';
 import { ProjectsCard } from './ProjectsCard';
 import { SpotifyCard } from './SpotifyCard';
 import StatusCard from './StatusCard';

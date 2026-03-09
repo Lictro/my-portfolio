@@ -56,7 +56,6 @@ export function TimeCard({ className }: { className?: string }) {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="border-t border-border" />
 
       {/* My Time */}

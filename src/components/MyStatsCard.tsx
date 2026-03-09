@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import BentoCard from './BentoCard';
 

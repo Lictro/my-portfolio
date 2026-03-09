@@ -23,7 +23,6 @@ export function FunCard({ className }: { className?: string }) {
           />
         </svg>
       </div>
-      {/* Content */}
       <div className="relative z-10 flex items-center justify-between h-full px-4">
         <h1 className="text-xl font-semibold text-[#efefd0]">Fun</h1>
         <ArrowUpRightIcon size={24} color="#efefd0"/>
