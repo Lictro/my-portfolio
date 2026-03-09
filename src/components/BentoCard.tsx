@@ -12,7 +12,7 @@ export default function BentoCard({
   children,
   className,
   variant = 'default',
-  onClick
+  onClick,
 }: BentoCardProps) {
   const focusColors: Record<string, string> = {
     default: 'hover:border-ring',

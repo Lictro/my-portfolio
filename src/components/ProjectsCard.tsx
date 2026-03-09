@@ -1,14 +1,15 @@
 'use client';
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import BentoCard from './BentoCard';
-import { useRouter } from "next/navigation";
-
-
+import { useRouter } from 'next/navigation';
 
 export function ProjectsCard({ className }: { className?: string }) {
   const router = useRouter();
   return (
-    <BentoCard onClick={() => router.push("/projects")} className={`${className} relative group overflow-hidden`}>
+    <BentoCard
+      onClick={() => router.push('/projects')}
+      className={`${className} relative group overflow-hidden`}
+    >
       <div
         className="absolute inset-0"
         style={{
