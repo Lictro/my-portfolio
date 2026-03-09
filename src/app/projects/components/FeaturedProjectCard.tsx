@@ -19,7 +19,7 @@ export default function FeaturedProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
         <div>
-          <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+          <h3 className="text-xl font-semibold text-slate-200 mb-2">{project.name}</h3>
           <p className="text-sm text-muted-foreground line-clamp-2">
             {project.description}
           </p>

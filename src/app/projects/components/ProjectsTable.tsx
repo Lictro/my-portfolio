@@ -10,19 +10,19 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
         <table className="w-full">
           <thead>
             <tr className="border-b border-border/50">
-              <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">
+              <th className="text-left py-4 pr-8 text-sm font-semibold text-slate-200">
                 Year
               </th>
-              <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">
+              <th className="text-left py-4 pr-8 text-sm font-semibold text-slate-200">
                 Project
               </th>
-              <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">
+              <th className="text-left py-4 pr-8 text-sm font-semibold text-slate-200">
                 Made at
               </th>
-              <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">
+              <th className="text-left py-4 pr-8 text-sm font-semibold text-slate-200">
                 Built with
               </th>
-              <th className="text-left py-3 px-4 text-sm font-medium text-muted-foreground">
+              <th className="text-left py-4 pr-8 text-sm font-semibold text-slate-200">
                 Link
               </th>
             </tr>
@@ -33,14 +33,14 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
                 key={project.id}
                 className="border-b border-border/30 hover:bg-muted/20 transition-colors"
               >
-                <td className="py-4 px-4 text-sm text-muted-foreground">
+                <td className="py-4 pr-4 text-sm text-muted-foreground">
                   {project.year}
                 </td>
-                <td className="py-4 px-4">
+                <td className="py-4 pr-4 font-semibold leading-snug text-slate-200">
                   <div className="font-medium">{project.name}</div>
                 </td>
-                <td className="py-4 px-4 text-sm">{project.madeAt}</td>
-                <td className="py-4 px-4">
+                <td className="py-4 pr-4 text-sm">{project.madeAt}</td>
+                <td className="py-4 pr-4">
                   <div className="flex flex-wrap gap-1.5">
                     {project.technologies.slice(0, 3).map((tech) => (
                       <TechBadge key={tech} tech={tech} />
@@ -52,25 +52,25 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
                     )}
                   </div>
                 </td>
-                <td className="py-4 px-4">
+                <td className="py-4 pr-4">
                   <div className="flex gap-2">
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 hover:bg-muted/40 rounded transition-colors"
+                      className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
                       title="Visit site"
                     >
-                      <ArrowSquareOutIcon size={32} />
+                      <ArrowSquareOutIcon size={20} />
                     </a>
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-1.5 hover:bg-muted/40 rounded transition-colors"
+                      className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
                       title="View code"
                     >
-                      <GithubLogoIcon size={32} />
+                      <GithubLogoIcon size={20} />
                     </a>
                   </div>
                 </td>
@@ -89,7 +89,7 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
           >
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1">
-                <h3 className="font-medium">{project.name}</h3>
+                <h3 className="font-medium text-slate-200">{project.name}</h3>
                 <p className="text-xs text-muted-foreground mt-0.5">
                   {project.description}
                 </p>

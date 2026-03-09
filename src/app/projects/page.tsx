@@ -3,6 +3,7 @@ import { ArrowLeftIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
 import FeaturedProjectCard from './components/FeaturedProjectCard';
 import ProjectsTable from './components/ProjectsTable';
+import ProjectCardMobile from './components/ProjectCardMobile';
 
 interface Project {
   id: number;
@@ -135,7 +136,7 @@ export default function ProjectsPage() {
             href="/"
             className="inline-flex items-center gap-2 text-ring group transition-colors mb-3"
           >
-            <ArrowLeftIcon size={20} className="group-hover:-translate-x-1" />
+            <ArrowLeftIcon size={20} className="transition-transform duration-300 ease-in-out group-hover:-translate-x-1" />
             <h3 className="font-xl">Luis Alvarez</h3>
           </Link>
           <h1 className="text-4xl sm:text-5xl font-bold text-slate-200">
@@ -149,11 +150,17 @@ export default function ProjectsPage() {
             <h2 className="text-2xl font-semibold text-slate-200 mb-6">
               Featured
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredProjects.map((project) => (
-                <FeaturedProjectCard key={project.id} project={project} />
-              ))}
-            </div>
+            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
+  {featuredProjects.map(p => (
+    <FeaturedProjectCard key={p.id} project={p} />
+  ))}
+</div>
+
+<div className="md:hidden space-y-4">
+  {featuredProjects.map(p => (
+    <ProjectCardMobile key={p.id} project={p} />
+  ))}
+</div>
           </div>
         )}
 
@@ -163,7 +170,7 @@ export default function ProjectsPage() {
             <h2 className="text-2xl font-semibold text-slate-200 mb-6">
               All Projects
             </h2>
-            <div className="bg-card/30 backdrop-blur-sm rounded-xl border border-border/40 overflow-hidden">
+            <div className="overflow-hidden">
               <ProjectsTable projects={allProjects} />
             </div>
           </div>
