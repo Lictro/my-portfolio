@@ -1,10 +1,14 @@
 'use client';
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
 import BentoCard from './BentoCard';
+import { useRouter } from "next/navigation";
+
+
 
 export function ProjectsCard({ className }: { className?: string }) {
+  const router = useRouter();
   return (
-    <BentoCard className={`${className} relative group overflow-hidden`}>
+    <BentoCard onClick={() => router.push("/projects")} className={`${className} relative group overflow-hidden`}>
       <div
         className="absolute inset-0"
         style={{
@@ -18,7 +22,7 @@ export function ProjectsCard({ className }: { className?: string }) {
         <h1 className="text-slate-200 text-xl font-semibold">Projects</h1>
         <ArrowUpRightIcon
           size={24}
-          className="transition-transform duration-300 ease-in-out text-slate-200 group-hover:text-[#64ffda] group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="transition-transform duration-300 ease-in-out text-slate-200 group-hover:text-ring group-hover:translate-x-1 group-hover:-translate-y-1"
         />
       </div>
     </BentoCard>

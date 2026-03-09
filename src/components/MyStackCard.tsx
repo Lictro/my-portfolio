@@ -23,7 +23,7 @@ export function MyStackCard({ className }: { className?: string }) {
         <h1 className="text-slate-200 text-xl font-semibold">My Stack</h1>
         <ArrowUpRightIcon
           size={24}
-          className="transition-transform duration-300 ease-in-out text-slate-200 group-hover:text-[#64ffda] group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="transition-transform duration-300 ease-in-out text-slate-200 group-hover:text-ring group-hover:translate-x-1 group-hover:-translate-y-1"
         />
       </div>
     </BentoCard>

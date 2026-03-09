@@ -18,8 +18,8 @@ export default function IconButton({ href, children }: Props) {
         'border border-border',
         'text-muted-foreground',
         'transition-all duration-200',
-        'hover:text-[#64ffda]',
-        'hover:border-[#64ffda]',
+        'hover:text-ring',
+        'hover:border-ring',
         'hover:-translate-y-0.5'
       )}
     >

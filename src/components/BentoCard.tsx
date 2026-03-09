@@ -5,18 +5,17 @@ interface BentoCardProps {
   children: ReactNode;
   className?: string;
   variant?: 'default' | 'accent' | 'spotify' | 'hobbies' | 'fun';
-  showArrow?: boolean; // si quieres mostrar arrow
+  onClick?: () => void;
 }
 
 export default function BentoCard({
   children,
   className,
   variant = 'default',
-  showArrow = false,
+  onClick
 }: BentoCardProps) {
-  // Colores de focus según variant
   const focusColors: Record<string, string> = {
-    default: 'hover:border-[#64ffda]',
+    default: 'hover:border-ring',
     accent: 'hover:border-[#00ff9c]',
     spotify: 'hover:border-green-500',
     hobbies: 'hover:border-yellow-400',
@@ -38,6 +37,7 @@ export default function BentoCard({
         focusColors[variant],
         className
       )}
+      onClick={onClick}
     >
       {children}
     </div>
