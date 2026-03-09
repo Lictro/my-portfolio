@@ -6,7 +6,7 @@ export interface Project {
   year: string;
   madeAt: string;
   technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl: string | null;
+  githubUrl: string | null;
   featured?: boolean;
 }

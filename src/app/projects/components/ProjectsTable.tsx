@@ -42,36 +42,35 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
                 <td className="py-4 pr-4 text-sm">{project.madeAt}</td>
                 <td className="py-4 pr-4">
                   <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.map((tech) => (
                       <TechBadge key={tech} tech={tech} />
                     ))}
-                    {project.technologies.length > 3 && (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium text-muted-foreground">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
                   </div>
                 </td>
                 <td className="py-4 pr-4">
                   <div className="flex gap-2">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
-                      title="Visit site"
-                    >
-                      <ArrowSquareOutIcon size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
-                      title="View code"
-                    >
-                      <GithubLogoIcon size={20} />
-                    </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
+                        title="Visit site"
+                      >
+                        <ArrowSquareOutIcon size={20} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pr-1.5 py-1.5 text-slate-200 hover:text-ring rounded transition-colors"
+                        title="View code"
+                      >
+                        <GithubLogoIcon size={20} />
+                      </a>
+                    )}
                   </div>
                 </td>
               </tr>
@@ -109,24 +108,26 @@ export default function ProjectsTable({ projects }: { projects: Project[] }) {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 pt-4 border-t border-slate-700 mt-auto">
-              <a
-                href={project.liveUrl}
-                className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
-              >
-                <ArrowSquareOutIcon size={20} />
-                <span>Visit</span>
-              </a>
+            <div className="flex items-center gap-2 pt-4 border-slate-700 mt-auto">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
+                >
+                  <ArrowSquareOutIcon size={20} />
+                  <span>Visit</span>
+                </a>
+              )}
 
-              <div className="w-px h-5 bg-slate-700" />
-
-              <a
-                href={project.githubUrl}
-                className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
-              >
-                <GithubLogoIcon size={20} />
-                <span>Source</span>
-              </a>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
+                >
+                  <GithubLogoIcon size={20} />
+                  <span>Source</span>
+                </a>
+              )}
             </div>
           </div>
         ))}

@@ -1,17 +1,10 @@
 'use client';
 
-import {
-  ArrowSquareOutIcon,
-  GithubLogoIcon,
-} from '@phosphor-icons/react';
+import { ArrowSquareOutIcon, GithubLogoIcon } from '@phosphor-icons/react';
 import { Project } from '../types/project';
 import TechBadge from './TechBadge';
 
-export default function ProjectCardMobile({
-  project,
-}: {
-  project: Project;
-}) {
+export default function ProjectCardMobile({ project }: { project: Project }) {
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden transition-all hover:border-ring">
       <div className="">
@@ -42,23 +35,27 @@ export default function ProjectCardMobile({
 
           {/* Actions */}
           <div className="flex items-center gap-3 pt-3 mt-3 border-t border-border">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-ring transition-colors"
-            >
-              <ArrowSquareOutIcon size={18} />
-              Visit
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-ring transition-colors"
+              >
+                <ArrowSquareOutIcon size={18} />
+                Visit
+              </a>
+            )}
 
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-ring transition-colors"
-            >
-              <GithubLogoIcon size={18} />
-              Code
-            </a>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-ring transition-colors"
+              >
+                <GithubLogoIcon size={18} />
+                Code
+              </a>
+            )}
           </div>
         </div>
       </div>

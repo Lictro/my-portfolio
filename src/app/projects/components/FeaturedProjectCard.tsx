@@ -19,7 +19,9 @@ export default function FeaturedProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
         <div>
-          <h3 className="text-xl font-semibold text-slate-200 mb-2">{project.name}</h3>
+          <h3 className="text-xl font-semibold text-slate-200 mb-2">
+            {project.name}
+          </h3>
           <p className="text-sm text-muted-foreground line-clamp-2">
             {project.description}
           </p>
@@ -33,25 +35,27 @@ export default function FeaturedProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-2 pt-4 border-t border-slate-700 mt-auto">
-          <a
-            href={project.liveUrl}
-            className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
-          >
-            <ArrowSquareOutIcon size={20} />
-            <span>Visit</span>
-          </a>
+        {project.liveUrl && project.githubUrl && (
+          <div className="flex items-center gap-2 pt-4 border-t border-slate-700 mt-auto">
+            <a
+              href={project.liveUrl}
+              className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
+            >
+              <ArrowSquareOutIcon size={20} />
+              <span>Visit</span>
+            </a>
 
-          <div className="w-px h-5 bg-slate-700" />
+            <div className="w-px h-5 bg-slate-700" />
 
-          <a
-            href={project.githubUrl}
-            className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
-          >
-            <GithubLogoIcon size={20} />
-            <span>Source</span>
-          </a>
-        </div>
+            <a
+              href={project.githubUrl}
+              className="flex-1 flex items-center justify-center gap-1.5 text-slate-200 hover:text-ring transition-colors text-sm font-medium"
+            >
+              <GithubLogoIcon size={20} />
+              <span>Source</span>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
