@@ -5,6 +5,7 @@ import { FunCard } from './FunCard';
 import { HobbiesCard } from './HobbiesCard';
 import MeCard from './MeCard';
 import { MyStackCard } from './MyStackCard';
+import { MyStatsCard } from './MyStats';
 import { ProjectsCard } from './ProjectsCard';
 import { SpotifyCard } from './SpotifyCard';
 import StatusCard from './StatusCard';
@@ -28,13 +29,12 @@ export default function BentoGrid() {
 
         <MyStackCard className="col-span-4 row-span-1" />
 
-        <BentoCard className="col-span-4 row-span-1">
-          <h2>My Stats</h2>
-        </BentoCard>
+        <MyStatsCard className="col-span-4 row-span-1" />
 
         <HobbiesCard className="col-span-4 row-span-1" />
 
         <FunCard className="col-span-4 row-span-1" />
+        
         <BuiltWithCard className="col-span-4 row-span-1 " />
       </div>
     </div>
