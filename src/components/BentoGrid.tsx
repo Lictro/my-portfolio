@@ -1,3 +1,5 @@
+'use client';
+
 import { AboutCard } from './AboutCard';
 import BentoCard from './BentoCard';
 import { BuiltWithCard } from './BuiltWithCard';
@@ -11,31 +13,27 @@ import { SpotifyCard } from './SpotifyCard';
 import StatusCard from './StatusCard';
 import { TimeCard } from './TimeCard';
 
+const cards = [
+  { Component: MeCard, className: 'col-span-8 row-span-4 p-8' },
+  { Component: AboutCard, className: 'col-span-4 row-span-6 p-8' },
+  { Component: TimeCard, className: 'col-span-4 row-span-2 p-4' },
+  { Component: ProjectsCard, className: 'col-span-4 row-span-1' },
+  { Component: StatusCard, className: 'col-span-4 row-span-1 p-4' },
+  { Component: SpotifyCard, className: 'col-span-4 row-span-1 p-4' },
+  { Component: MyStackCard, className: 'col-span-4 row-span-1' },
+  { Component: MyStatsCard, className: 'col-span-4 row-span-1' },
+  { Component: HobbiesCard, className: 'col-span-4 row-span-1' },
+  { Component: FunCard, className: 'col-span-4 row-span-1' },
+  { Component: BuiltWithCard, className: 'col-span-4 row-span-1' },
+];
+
 export default function BentoGrid() {
   return (
     <div className="w-full px-8 xl:px-20">
       <div className="grid grid-cols-12 auto-rows-[80px] gap-4">
-        <MeCard className="col-span-8 row-span-4 p-8" />
-
-        <AboutCard className="col-span-4 row-span-6 p-8" />
-
-        <TimeCard className="col-span-4 row-span-2 p-4" />
-
-        <ProjectsCard className="col-span-4 row-span-1" />
-
-        <StatusCard className="col-span-4 row-span-1 p-4" />
-
-        <SpotifyCard className="col-span-4 row-span-1 p-4" />
-
-        <MyStackCard className="col-span-4 row-span-1" />
-
-        <MyStatsCard className="col-span-4 row-span-1" />
-
-        <HobbiesCard className="col-span-4 row-span-1" />
-
-        <FunCard className="col-span-4 row-span-1" />
-        
-        <BuiltWithCard className="col-span-4 row-span-1 " />
+        {cards.map(({ Component, className }, index) => (
+          <Component key={index} className={className} />
+        ))}
       </div>
     </div>
   );
