@@ -44,7 +44,7 @@ export function TimeCard({ className }: { className?: string }) {
   return (
     <BentoCard className={className}>
        {/* Your Time */}
-      <div className="space-y-1">
+      <div className="space-y-0.5">
         <p className="text-sm text-muted-foreground">Your Time</p>
         <div className="flex items-baseline gap-2">
           <p className="text-3xl font-medium tracking-tight text-slate-200">{localTime}</p>
@@ -58,7 +58,7 @@ export function TimeCard({ className }: { className?: string }) {
       <div className="border-t border-border" />
 
       {/* My Time */}
-      <div className="space-y-1">
+      <div className="space-y-0.5">
         <p className="text-sm text-muted-foreground">My Time</p>
         <div className="flex items-baseline gap-2">
           <p className="text-3xl font-medium tracking-tight text-slate-200">{gmt6Time}</p>

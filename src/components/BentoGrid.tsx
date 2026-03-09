@@ -1,7 +1,10 @@
 import { AboutCard } from "./AboutCard";
 import BentoCard from "./BentoCard";
 import { BuiltWithCard } from "./BuiltWithCard";
+import { HobbiesCard } from "./HobbiesCard";
 import MeCard from "./MeCard";
+import { MyStackCard } from "./MyStackCard";
+import { ProjectsCard } from "./ProjectsCard";
 import { SpotifyCard } from "./SpotifyCard";
 import StatusCard from "./StatusCard";
 import { TimeCard } from "./TimeCard";
@@ -14,27 +17,21 @@ export default function BentoGrid() {
 
         <AboutCard className="col-span-4 row-span-6 p-8" />
 
-        <TimeCard className="col-span-4 row-span-2 px-8 py-2.5" />
+        <TimeCard className="col-span-4 row-span-2 p-4" />
 
-        <BentoCard className="col-span-4 row-span-1">
-          <h2>Projects</h2>
-        </BentoCard>
+        <ProjectsCard className="col-span-4 row-span-1" />
 
         <StatusCard className="col-span-4 row-span-1 p-4"/>
 
         <SpotifyCard className="col-span-4 row-span-1 p-4" />
 
-        <BentoCard className="col-span-4 row-span-1">
-          <h2>Stack</h2>
-        </BentoCard>
+        <MyStackCard className="col-span-4 row-span-1" />
 
         <BentoCard className="col-span-4 row-span-1">
           <h2>My Stats</h2>
         </BentoCard>
 
-        <BentoCard className="col-span-4 row-span-1">
-          <h2>Hobbies</h2>
-        </BentoCard>
+        <HobbiesCard className="col-span-4 row-span-1"/>
 
         <BentoCard className="col-span-4 row-span-1">
           <h2>Fun</h2>
