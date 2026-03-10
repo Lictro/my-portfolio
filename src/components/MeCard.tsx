@@ -25,7 +25,7 @@ export default function MeCard({ className }: { className?: string }) {
           <h1 className="text-4xl font-bold text-slate-200">Luis Alvarez</h1>
 
           <p className="text-lg font-semibold text-slate-200">
-            Full Stack Software Development
+            Full Stack Software Developer
           </p>
 
           <p className="max-w-xl text-sm text-foreground">

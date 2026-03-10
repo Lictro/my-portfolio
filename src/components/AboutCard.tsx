@@ -10,10 +10,11 @@ export function AboutCard({ className }: { className?: string }) {
       </p>
 
       <p className="text-sm leading-relaxed text-muted-foreground">
-        I'm Luis Alvarez, and I’m a frontend engineer focused on building
-        accessible, pixel-perfect interfaces where design meets clean and
-        scalable code. I enjoy crafting thoughtful user experiences and turning
-        complex ideas into simple, intuitive products.
+        I'm Luis Alvarez, a Full Stack Software Developer with a focus on
+        frontend development. I create accessible, pixel-perfect interfaces that
+        blend design with clean, scalable code. I love designing thoughtful user
+        experiences and transforming complex concepts into simple, intuitive
+        products.
       </p>
 
       <p className="text-sm leading-relaxed text-muted-foreground">

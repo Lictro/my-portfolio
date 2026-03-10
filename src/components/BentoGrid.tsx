@@ -48,17 +48,17 @@ const cards = [
 
 export default function BentoGrid() {
   return (
-    <div className="w-full px-8 xl:px-20">
-      <div className="grid grid-cols-12 auto-rows-[80px] gap-4">
+    <div className="w-full">
+      <div className="grid grid-cols-12 auto-rows-[80px] gap-4 place-content-start">
         {cards.map(({ Component, className, componentClassName }, index) => (
           <motion.div
             key={index}
             className={className}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,
-              delay: index * 0.05,
+              delay: index * 0.07,
               ease: 'easeOut',
             }}
           >
