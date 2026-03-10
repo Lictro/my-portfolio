@@ -1,20 +1,22 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
 
-interface BentoCardProps {
-  children: ReactNode;
+type BentoCardProps = {
+  children: React.ReactNode;
   className?: string;
-  variant?: 'default' | 'accent' | 'spotify' | 'hobbies' | 'fun';
+  variant?: string;
   onClick?: () => void;
-}
+  direction?: 'row' | 'col';
+};
 
 export default function BentoCard({
   children,
   className,
   variant = 'default',
   onClick,
+  direction = 'col',
 }: BentoCardProps) {
-  const focusColors: Record<string, string> = {
+   const focusColors: Record<string, string> = {
     default: 'hover:border-ring',
     accent: 'hover:border-[#00ff9c]',
     spotify: 'hover:border-green-500',
@@ -26,7 +28,8 @@ export default function BentoCard({
     <div
       tabIndex={0}
       className={clsx(
-        'rounded-2xl flex flex-col gap-4 transition-all outline-none focus:outline-none focus:ring-0',
+        'rounded-2xl flex transition-all outline-none focus:outline-none focus:ring-0',
+        direction === 'col' ? 'flex-col gap-4' : 'flex-row gap-6 items-start',
         {
           'bg-card border border-border': variant === 'default',
           'bg-[#112240] border border-[#233554]': variant === 'accent',

@@ -14,7 +14,7 @@ export default function IconButton({ href, children }: Props) {
       target="_blank"
       className={clsx(
         'flex items-center justify-center',
-        'h-10 w-10 rounded-xl',
+        'h-12 w-12 rounded-xl',
         'border border-border',
         'text-muted-foreground',
         'transition-all duration-200',

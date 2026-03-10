@@ -1,30 +1,25 @@
 'use client';
-import { ArrowUpRightIcon } from '@phosphor-icons/react';
+
+import TechBadge from '@/app/projects/components/TechBadge';
 import BentoCard from './BentoCard';
 
 export function MyStackCard({ className }: { className?: string }) {
   return (
-    <BentoCard className={`${className} relative group overflow-hidden`}>
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(
-              45deg,
-              rgba(255,255,255,0.05),
-              rgba(255,255,255,0.05) 1px,
-              transparent 1px,
-              transparent 10px
-            )
-          `,
-        }}
-      ></div>
-      <div className="relative z-10 flex items-center justify-between h-full px-4">
-        <h1 className="text-slate-200 text-xl font-semibold">My Stack</h1>
-        <ArrowUpRightIcon
-          size={24}
-          className="transition-transform duration-300 ease-in-out text-slate-200 group-hover:text-ring group-hover:translate-x-1 group-hover:-translate-y-1"
-        />
+    <BentoCard className={`${className} relative overflow-hidden`}>
+      <div className="relative z-10 flex flex-col h-full p-4 space-y-5">
+        <h1 className="text-slate-200 text-xl font-semibold">Tech Stack </h1>
+
+        <div className="flex flex-wrap gap-2">
+          <TechBadge tech="TypeScript" />
+          <TechBadge tech="React.js" />
+          <TechBadge tech="Next.js" />
+          <TechBadge tech="React Native" />
+          <TechBadge tech="TailwindCSS" />
+          <TechBadge tech="Node.js" />
+          <TechBadge tech="C#" />
+          <TechBadge tech="PostgreSQL" />
+          <TechBadge tech="Firebase" />
+        </div>
       </div>
     </BentoCard>
   );
