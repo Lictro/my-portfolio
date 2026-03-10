@@ -3,7 +3,7 @@ import BentoCard from './BentoCard';
 export function AboutCard({ className }: { className?: string }) {
   return (
     <BentoCard className={className}>
-      <h1 className="text-lg text-slate-200 font-semibold mb-2">About Me</h1>
+      <h1 className="text-xl text-slate-200 font-bold mb-2">About Me</h1>
 
       <p className="text-sm leading-relaxed text-muted-foreground">
         Hello there!

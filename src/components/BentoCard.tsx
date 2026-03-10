@@ -16,7 +16,7 @@ export default function BentoCard({
   onClick,
   direction = 'col',
 }: BentoCardProps) {
-   const focusColors: Record<string, string> = {
+  const focusColors: Record<string, string> = {
     default: 'hover:border-ring',
     accent: 'hover:border-[#00ff9c]',
     spotify: 'hover:border-green-500',

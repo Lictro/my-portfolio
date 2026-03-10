@@ -22,11 +22,11 @@ export default function MeCard({ className }: { className?: string }) {
     <BentoCard className={`p-6 items-stretch ${className}`} direction="row">
       <div className="flex flex-col justify-between space-y-6 max-w-lg h-full">
         <div className="space-y-4">
-          <h1 className="text-4xl font-bold text-slate-200">
-            Luis Alvarez
-          </h1>
+          <h1 className="text-4xl font-bold text-slate-200">Luis Alvarez</h1>
 
-          <p className="text-lg font-semibold text-slate-200">Full Stack Software Development</p>
+          <p className="text-lg font-semibold text-slate-200">
+            Full Stack Software Development
+          </p>
 
           <p className="max-w-xl text-sm text-foreground">
             I <span className="text-slate-200 font-medium">design</span> and{' '}
@@ -42,9 +42,18 @@ export default function MeCard({ className }: { className?: string }) {
 
           <div className="flex flex-wrap gap-2">
             <TechBadge tech="Honduras" icon={<MapPinIcon size={12} />} />
-            <TechBadge tech="English & Spanish" icon={<GlobeIcon size={12} />} />
-            <TechBadge tech="Software Development" icon={<FlagIcon size={12} />} />
-            <TechBadge tech="Problem Solver" icon={<LightbulbFilamentIcon size={12} />} />
+            <TechBadge
+              tech="English & Spanish"
+              icon={<GlobeIcon size={12} />}
+            />
+            <TechBadge
+              tech="Software Development"
+              icon={<FlagIcon size={12} />}
+            />
+            <TechBadge
+              tech="Problem Solver"
+              icon={<LightbulbFilamentIcon size={12} />}
+            />
             <TechBadge tech="Team Player" icon={<UsersThreeIcon size={12} />} />
             <TechBadge tech="Flexible" icon={<WrenchIcon size={12} />} />
           </div>
@@ -78,6 +87,7 @@ export default function MeCard({ className }: { className?: string }) {
             width={460}
             height={460}
             className="object-cover object-bottom w-full h-full"
+            loading="eager"
           />
         </div>
       </div>
