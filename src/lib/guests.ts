@@ -1,12 +1,15 @@
-import { ref, push, serverTimestamp } from 'firebase/database';
-import { db } from './firebase';
 import { Guest } from '@/app/guests/types';
 
-export async function addGuest(guest: Omit<Guest, 'id'>) {
-  const guestsRef = ref(db, 'guests');
-
-  await push(guestsRef, {
-    ...guest,
-    createdAt: serverTimestamp(),
+export async function addGuest(guest: Guest) {
+  const res = await fetch('/api/guests', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(guest),
   });
+
+  if (!res.ok) {
+    throw new Error('Failed to add guest');
+  }
+
+  return res.json();
 }

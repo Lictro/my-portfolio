@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default function GuestPolaroid({ guest, index }: Props) {
-
   const date = new Date(guest.createdAt);
   const formatted = date.toLocaleDateString('en-US', {
     month: 'long',
@@ -39,19 +38,21 @@ export default function GuestPolaroid({ guest, index }: Props) {
       <div className="flex items-center gap-2 mb-2">
         <ReactCountryFlag countryCode={guest.country} svg />
 
-        <h3 className="font-semibold text-sm truncate flex-1 text-foreground">
+        <h3 className="font-semibold text-sm truncate flex-1 text-slate-50">
           {guest.name}
         </h3>
       </div>
 
       {/* Message */}
       <div className="mb-2">
-        <p className="text-xs text-muted-foreground line-clamp-3 wrap-break-word">
+        <p className="text-xs text-muted-foreground line-clamp-3 wrap-break-word ">
           {guest.message.slice(0, 100)}
         </p>
       </div>
 
-      <p className="text-xs text-muted-foreground text-center mt-auto">{formatted}</p>
+      <p className="text-xs text-muted-foreground text-center mt-auto">
+        {formatted}
+      </p>
     </div>
   );
 }

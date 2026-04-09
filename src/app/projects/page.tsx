@@ -1,10 +1,9 @@
 'use client';
-import { ArrowLeftIcon } from '@phosphor-icons/react';
-import Link from 'next/link';
 import FeaturedProjectCard from './components/FeaturedProjectCard';
 import ProjectsTable from './components/ProjectsTable';
 import ProjectCardMobile from './components/ProjectCardMobile';
 import { Project } from './types/project';
+import Header from '@/components/Header';
 
 const projects: Project[] = [
   {
@@ -116,21 +115,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
-        <div className="mb-12">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-ring group transition-colors mb-3"
-          >
-            <ArrowLeftIcon
-              size={20}
-              className="transition-transform duration-300 ease-in-out group-hover:-translate-x-1"
-            />
-            <h3 className="font-xl">Luis Alvarez</h3>
-          </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-200">
-            All Projects
-          </h1>
-        </div>
+        <Header pageName="Projects" />
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (

@@ -11,6 +11,7 @@ import { ProjectsCard } from './ProjectsCard';
 import { SpotifyCard } from './SpotifyCard';
 import StatusCard from './StatusCard';
 import { TimeCard } from './TimeCard';
+import { GuestbookCard } from './GuestbookCard';
 
 const cards = [
   {
@@ -41,7 +42,7 @@ const cards = [
     className: 'col-span-4 row-span-1',
     componentClassName: 'p-4',
   },
-  { Component: HobbiesCard, className: 'col-span-4 row-span-1' },
+  { Component: GuestbookCard, className: 'col-span-4 row-span-1' },
   { Component: FunCard, className: 'col-span-4 row-span-1' },
   { Component: BuiltWithCard, className: 'col-span-4 row-span-1' },
 ];
