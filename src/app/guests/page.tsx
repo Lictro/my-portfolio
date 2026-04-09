@@ -8,18 +8,10 @@ import { useGuests } from '@/hooks/useGuests';
 import { addGuest } from '@/lib/guests';
 import { EmptyState } from './components/EmptyState';
 import { Loader } from './components/Loader';
-import {
-  ArrowLeftIcon,
-  CaretLeftIcon,
-  CaretRightIcon,
-  PlusIcon,
-} from '@phosphor-icons/react';
-import Link from 'next/link';
 import GuestPolaroid from './components/GuestPolaroid';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import Pagination from './components/Pagination';
-import Header from '@/components/Header';
+import Header from '@/components/ui/header';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -350,7 +342,7 @@ export default function GuestsPage() {
   const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { guests, loading } = useGuests();
+  const { guests, loading, refetch } = useGuests();
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -387,6 +379,13 @@ export default function GuestsPage() {
           backgroundColor: [msg.config.background],
           gesture: [msg.config.gesture],
           gestureProbability: !msg.config.gesture ? 0 : 100,
+          nose: [msg.config.nose],
+          beard: [msg.config.beard],
+          beardProbability: !msg.config.beard ? 0 : 100,
+          body: [msg.config.body],
+          brows: [msg.config.brows],
+          glasses: [msg.config.glasses],
+          glassesProbability: !msg.config.glasses ? 0 : 100,
           seed: msg.config.seed,
           size: 200,
         }).toString(),
@@ -434,7 +433,10 @@ export default function GuestsPage() {
           <AddGuestModal
             open={open}
             onClose={() => setOpen(false)}
-            onAdd={addGuest}
+            onAdd={async (guest) => {
+              await addGuest(guest);
+              await refetch();
+            }}
           />
         </div>
       </div>

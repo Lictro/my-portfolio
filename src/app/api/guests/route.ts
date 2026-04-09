@@ -5,34 +5,36 @@ import { db } from '@/lib/firebase';
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json();
-    const { name, country, message, avatarConfig } = data;
+    const { name, country, message, config } = data;
 
-    // Validaciones mínimas
+    console.log('BODY:', data);
+
     if (
       !name ||
       typeof name !== 'string' ||
       name.trim().length === 0 ||
       !country ||
       typeof country !== 'string' ||
+      country.trim().length === 0 ||
       !message ||
       typeof message !== 'string' ||
       message.trim().length === 0 ||
-      !avatarConfig ||
-      typeof avatarConfig !== 'object'
+      !config ||
+      typeof config !== 'object'
     ) {
       return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
     }
 
-    // Limitar mensaje a 100 chars
     const trimmedMessage = message.slice(0, 100);
 
     const guestRef = ref(db, 'guests');
+
     await push(guestRef, {
       name: name.trim(),
       country,
       message: trimmedMessage,
-      config: avatarConfig,
-      createdAt: serverTimestamp(),
+      config,
+      createdAt: Date.now(),
     });
 
     return NextResponse.json({ success: true });

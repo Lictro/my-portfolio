@@ -1,6 +1,6 @@
 'use client';
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 import { useRouter } from 'next/navigation';
 
 export function ProjectsCard({ className }: { className?: string }) {

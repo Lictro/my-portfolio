@@ -3,7 +3,7 @@ import FeaturedProjectCard from './components/FeaturedProjectCard';
 import ProjectsTable from './components/ProjectsTable';
 import ProjectCardMobile from './components/ProjectCardMobile';
 import { Project } from './types/project';
-import Header from '@/components/Header';
+import Header from '@/components/ui/header';
 
 const projects: Project[] = [
   {

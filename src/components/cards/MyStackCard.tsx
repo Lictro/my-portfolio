@@ -1,7 +1,7 @@
 'use client';
 
 import TechBadge from '@/app/projects/components/TechBadge';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 
 export function MyStackCard({ className }: { className?: string }) {
   return (

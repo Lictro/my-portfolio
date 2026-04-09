@@ -34,6 +34,13 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
       hair: [cfg.hair],
       gesture: [cfg.gesture],
       gestureProbability: !cfg.gesture ? 0 : 100,
+      nose: [cfg.nose],
+      beard: [cfg.beard],
+      beardProbability: !cfg.beard ? 0 : 100,
+      body: [cfg.body],
+      brows: [cfg.brows],
+      glasses: [cfg.glasses],
+      glassesProbability: !cfg.glasses ? 0 : 100,
     }).toString();
 
   const [avatarSvg, setAvatarSvg] = useState(buildAvatar(initialConfig));
@@ -43,7 +50,6 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
       id: nanoid(),
       name,
       country,
-      flag: country,
       message,
       createdAt: new Date().toISOString(),
       config: avatarConfig,

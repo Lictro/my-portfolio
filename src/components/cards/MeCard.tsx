@@ -13,7 +13,7 @@ import {
   WrenchIcon,
 } from '@phosphor-icons/react';
 import Image from 'next/image';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 import IconButton from './IconButton';
 import TechBadge from '@/app/projects/components/TechBadge';
 

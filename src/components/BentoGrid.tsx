@@ -1,17 +1,17 @@
 'use client';
 import { motion } from 'framer-motion';
-import { AboutCard } from './AboutCard';
-import { BuiltWithCard } from './BuiltWithCard';
-import { FunCard } from './FunCard';
-import { HobbiesCard } from './HobbiesCard';
-import MeCard from './MeCard';
-import { MyStackCard } from './MyStackCard';
-import { MyStatsCard } from './MyStatsCard';
-import { ProjectsCard } from './ProjectsCard';
-import { SpotifyCard } from './SpotifyCard';
-import StatusCard from './StatusCard';
-import { TimeCard } from './TimeCard';
-import { GuestbookCard } from './GuestbookCard';
+import { AboutCard } from './cards/AboutCard';
+import { BuiltWithCard } from './cards/BuiltWithCard';
+import { FunCard } from './cards/FunCard';
+import { HobbiesCard } from './cards/HobbiesCard';
+import MeCard from './cards/MeCard';
+import { MyStackCard } from './cards/MyStackCard';
+import { MyStatsCard } from './cards/MyStatsCard';
+import { ProjectsCard } from './cards/ProjectsCard';
+import { SpotifyCard } from './cards/SpotifyCard';
+import StatusCard from './cards/StatusCard';
+import { TimeCard } from './cards/TimeCard';
+import { GuestbookCard } from './cards/GuestbookCard';
 
 const cards = [
   {

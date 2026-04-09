@@ -1,6 +1,6 @@
 'use client';
 
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 import { SpotifyLogoIcon } from '@phosphor-icons/react';
 import useSWR from 'swr';
 

@@ -21,7 +21,8 @@ export default function GuestPolaroid({ guest, index }: Props) {
     <div
       className={clsx(
         'bg-card border border-border p-4 shadow-xl h-80 flex flex-col',
-        'transition-transform duration-300 hover:scale-[1.02]'
+        'transition-transform duration-300 hover:scale-[1.02]',
+        'w-[85%] mx-auto sm:w-full'
       )}
       style={{
         transform: `rotate(${(index % 2 === 0 ? 1 : -1) * (Math.random() * 3)}deg)`,

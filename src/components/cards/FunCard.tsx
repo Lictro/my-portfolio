@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 
 export function FunCard({ className }: { className?: string }) {
   return (

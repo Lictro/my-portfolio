@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 import clsx from 'clsx';
 import { supabase } from '@/lib/supabase';
 

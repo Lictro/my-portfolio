@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 
 export function TimeCard({ className }: { className?: string }) {
   const [localTime, setLocalTime] = useState('');

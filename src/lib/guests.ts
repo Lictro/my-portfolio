@@ -1,6 +1,7 @@
 import { Guest } from '@/app/guests/types';
 
 export async function addGuest(guest: Guest) {
+  console.log('Adding guest', guest);
   const res = await fetch('/api/guests', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -8,7 +9,7 @@ export async function addGuest(guest: Guest) {
   });
 
   if (!res.ok) {
-    throw new Error('Failed to add guest');
+    throw new Error('Failed to add guest', { cause: res });
   }
 
   return res.json();

@@ -10,7 +10,18 @@ type Props = {
   onClose: () => void;
 };
 
-const TABS = ['background', 'eyes', 'mouth', 'hair', 'gesture'] as const;
+const TABS = [
+  'background',
+  'eyes',
+  'mouth',
+  'hair',
+  'gesture',
+  'nose',
+  'beard',
+  'body',
+  'brows',
+  'glasses',
+] as const;
 
 const OPTIONS = {
   background: ['b6e3f4', 'c0aede', 'd1d4f9', 'ffd5dc', 'ffdfbf'],
@@ -30,9 +41,30 @@ const OPTIONS = {
   mouth: new Array(30)
     .fill(0)
     .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  nose: new Array(20)
+    .fill(0)
+    .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
   hair: new Array(63)
     .fill(0)
     .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  beard: [
+    'none',
+    ...new Array(12)
+      .fill(0)
+      .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  ],
+  body: new Array(25)
+    .fill(0)
+    .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  brows: new Array(13)
+    .fill(0)
+    .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  glasses: [
+    'none',
+    ...new Array(11)
+      .fill(0)
+      .map((_, i) => `variant${i + 1 < 10 ? '0' : ''}${i + 1}`),
+  ],
 };
 
 export default function AvatarEditorFullscreen({
@@ -63,7 +95,14 @@ export default function AvatarEditorFullscreen({
       lips: [config.mouth],
       hair: [config.hair],
       gesture: [config.gesture],
+      nose: [config.nose],
+      beard: [config.beard],
+      body: [config.body],
+      brows: [config.brows],
+      glasses: [config.glasses],
       gestureProbability: !config.gesture ? 0 : 100,
+      beardProbability: !config.beard ? 0 : 100,
+      glassesProbability: !config.glasses ? 0 : 100,
     }).toString();
   }, [config]);
 
@@ -77,6 +116,13 @@ export default function AvatarEditorFullscreen({
       hair: [cfg.hair],
       gesture: [cfg.gesture],
       gestureProbability: !cfg.gesture ? 0 : 100,
+      nose: [cfg.nose],
+      beard: [cfg.beard],
+      beardProbability: !cfg.beard ? 0 : 100,
+      body: [cfg.body],
+      brows: [cfg.brows],
+      glasses: [cfg.glasses],
+      glassesProbability: !cfg.glasses ? 0 : 100,
     }).toString();
   };
 

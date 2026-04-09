@@ -1,4 +1,4 @@
-import BentoCard from './BentoCard';
+import BentoCard from '../BentoCard';
 
 export function BuiltWithCard({ className }: { className?: string }) {
   return (
