@@ -3,7 +3,6 @@ export type Guest = {
   name: string;
   country: string;
   flag: string;
-  avatar: string;
   message: string;
   createdAt: string;
   config: any;

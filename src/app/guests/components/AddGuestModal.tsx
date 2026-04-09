@@ -38,13 +38,12 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
 
   const [avatarSvg, setAvatarSvg] = useState(buildAvatar(initialConfig));
 
-  const submit = () => {
+  const submit = async () => {
     const card: Guest = {
       id: nanoid(),
       name,
       country,
       flag: country,
-      avatar: avatarSvg || '',
       message,
       createdAt: new Date().toISOString(),
       config: avatarConfig,

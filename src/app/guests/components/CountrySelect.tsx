@@ -4,24 +4,7 @@ import { CaretDownIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import clsx from 'clsx';
-
-type Country = {
-  code: string;
-  name: string;
-};
-
-const COUNTRIES: Country[] = [
-  { code: 'US', name: 'United States' },
-  { code: 'MX', name: 'Mexico' },
-  { code: 'AR', name: 'Argentina' },
-  { code: 'ES', name: 'Spain' },
-  { code: 'FR', name: 'France' },
-  { code: 'DE', name: 'Germany' },
-  { code: 'BR', name: 'Brazil' },
-  { code: 'JP', name: 'Japan' },
-  { code: 'GB', name: 'United Kingdom' },
-  { code: 'CA', name: 'Canada' },
-];
+import COUNTRIES from '../data/countries.json';
 
 type Props = {
   value: string;

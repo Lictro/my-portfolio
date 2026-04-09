@@ -1,16 +1,20 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Guest } from './types';
 import AddGuestModal from './components/AddGuestModal';
 import { createAvatar } from '@dicebear/core';
 import { notionists } from '@dicebear/collection';
-import ReactCountryFlag from 'react-country-flag';
+import { useGuests } from '@/hooks/useGuests';
+import { addGuest } from '@/lib/guests';
+import { EmptyState } from './components/EmptyState';
+import { Loader } from './components/Loader';
+import { ArrowLeftIcon, PlusIcon } from '@phosphor-icons/react';
+import Link from 'next/link';
+import GuestPolaroid from './components/GuestPolaroid';
 
 export default function GuestsPage() {
   const [open, setOpen] = useState(false);
-
-  const [guests, setGuests] = useState<Guest[]>([]);
+  const { guests, loading } = useGuests();
 
   const guestsWithAvatars = useMemo(
     () =>
@@ -21,6 +25,8 @@ export default function GuestsPage() {
           eyes: [msg.config.eyes],
           hair: [msg.config.hair],
           backgroundColor: [msg.config.background],
+          gesture: [msg.config.gesture],
+          gestureProbability: !msg.config.gesture ? 0 : 100,
           seed: msg.config.seed,
           size: 200,
         }).toString(),
@@ -28,64 +34,69 @@ export default function GuestsPage() {
     [guests]
   );
 
-  const addGuest = (card: Guest) => {
-    setGuests((prev) => [card, ...prev]);
-  };
-
-  console.log({ guests });
-
   return (
-    <div className="min-h-screen text-white p-10">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-10">
-        <h1 className="text-3xl font-bold">🌍 Guests</h1>
-
-        <button
-          onClick={() => setOpen(true)}
-          className="bg-[#64ffda] text-black px-4 py-2 rounded-lg font-semibold"
-        >
-          Leave a postcard
-        </button>
-      </div>
-
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {guestsWithAvatars.map((msg, idx) => {
-          return (
-            <div
-              key={msg.id}
-              className="bg-card border border-border p-4 shadow-xl h-80 flex flex-col"
-              style={{
-                transform: `rotate(${(idx % 2 === 0 ? 1 : -1) * (Math.random() * 3)}deg)`,
-              }}
+    <div className="min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="mb-12 flex items-center justify-between gap-4">
+          {/* Left: back link + title */}
+          <div className="flex flex-col sm:flex-col">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-ring group transition-colors mb-3"
             >
-              <div
-                className="bg-muted flex items-center justify-center flex-1 mb-4 relative overflow-hidden bg-[]"
-                dangerouslySetInnerHTML={{ __html: msg.avatarSvg }}
-                style={{ background: `#${msg.config.background}` }}
+              <ArrowLeftIcon
+                size={20}
+                className="transition-transform duration-300 ease-in-out group-hover:-translate-x-1"
               />
-              <div className="flex items-center gap-2 mb-2">
-                <ReactCountryFlag countryCode="US" svg />
-                <h3 className="font-semibold text-sm truncate flex-1 text-foreground">
-                  {msg.name}
-                </h3>
-              </div>
-              <div className="h-16 overflow-y-auto mb-2">
-                <p className="text-xs text-muted-foreground">{msg.message}</p>
-              </div>
-              <p className="text-xs text-muted-foreground text-center">
-                {msg.createdAt}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+              <h3 className="text-xl">Luis Alvarez</h3>
+            </Link>
 
-      <AddGuestModal
-        open={open}
-        onClose={() => setOpen(false)}
-        onAdd={addGuest}
-      />
+            <h1 className="text-4xl sm:text-5xl font-bold text-slate-200">
+              Guestbook
+            </h1>
+          </div>
+
+          {/* Right: Responsive button */}
+          <div>
+            {/* Desktop: Leave a Message */}
+            <button
+              onClick={() => setOpen(true)}
+              className="hidden sm:inline-flex px-4 py-2.5 bg-[#64ffda] text-[#0a192f] rounded-lg font-medium transition hover:brightness-95 active:scale-[0.98]"
+            >
+              Leave a Message
+            </button>
+
+            {/* Mobile: Circle Plus Icon */}
+            <button
+              onClick={() => setOpen(true)}
+              className="inline-flex sm:hidden w-14 h-14 items-center justify-center rounded-full bg-[#64ffda] text-[#0a192f] shadow-lg transition hover:brightness-95 active:scale-95"
+              aria-label="Leave a Message"
+            >
+              <PlusIcon size={28} weight="bold" />
+            </button>
+          </div>
+        </div>
+        <div className="min-h-screen text-white">
+          {/* STATES */}
+          {loading ? (
+            <Loader />
+          ) : guestsWithAvatars.length === 0 ? (
+            <EmptyState openModal={() => setOpen(true)} />
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {guestsWithAvatars.map((guest, idx) => (
+                <GuestPolaroid key={guest.id} guest={guest} index={idx} />
+              ))}
+            </div>
+          )}
+
+          <AddGuestModal
+            open={open}
+            onClose={() => setOpen(false)}
+            onAdd={addGuest}
+          />
+        </div>
+      </div>
     </div>
   );
 }
