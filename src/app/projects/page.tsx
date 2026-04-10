@@ -4,6 +4,8 @@ import ProjectsTable from './components/ProjectsTable';
 import ProjectCardMobile from './components/ProjectCardMobile';
 import { Project } from './types/project';
 import Header from '@/components/ui/header';
+import { motion } from 'framer-motion';
+import CursorHalo from './components/CursorHalo';
 
 const projects: Project[] = [
   {
@@ -112,43 +114,101 @@ export default function ProjectsPage() {
   const allProjects = projects.filter((p) => !p.featured);
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Header */}
-        <Header pageName="Projects" />
+    <>
+      <CursorHalo />
+      <div className="min-h-screen bg-background ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <Header pageName="Projects" />
+          </motion.div>
 
-        {/* Featured Projects */}
-        {featuredProjects.length > 0 && (
-          <div className="mb-16">
-            <h2 className="text-2xl font-semibold text-slate-200 mb-6">
-              Featured
-            </h2>
-            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredProjects.map((p) => (
-                <FeaturedProjectCard key={p.id} project={p} />
-              ))}
-            </div>
+          {/* Featured Projects */}
+          {featuredProjects.length > 0 && (
+            <motion.div
+              className="mb-16"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+            >
+              <motion.h2
+                className="text-2xl font-semibold text-slate-200 mb-6"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                Featured
+              </motion.h2>
 
-            <div className="md:hidden space-y-4">
-              {featuredProjects.map((p) => (
-                <ProjectCardMobile key={p.id} project={p} />
-              ))}
-            </div>
-          </div>
-        )}
+              {/* Desktop Grid */}
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredProjects.map((p) => (
+                  <motion.div
+                    key={p.id}
+                    variants={{
+                      hidden: { opacity: 0, y: 32 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                  >
+                    <FeaturedProjectCard project={p} />
+                  </motion.div>
+                ))}
+              </div>
 
-        {/* All Projects Table */}
-        {allProjects.length > 0 && (
-          <div>
-            <h2 className="text-2xl font-semibold text-slate-200 mb-6">
-              All Projects
-            </h2>
-            <div className="overflow-hidden">
-              <ProjectsTable projects={allProjects} />
-            </div>
-          </div>
-        )}
+              {/* Mobile */}
+              <div className="md:hidden space-y-4">
+                {featuredProjects.map((p) => (
+                  <motion.div
+                    key={p.id}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: p.id * 0.05,
+                    }}
+                  >
+                    <ProjectCardMobile project={p} />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* All Projects Table */}
+          {allProjects.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <h2 className="text-2xl font-semibold text-slate-200 mb-6">
+                All Projects
+              </h2>
+
+              <motion.div
+                className="overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <ProjectsTable projects={allProjects} />
+              </motion.div>
+            </motion.div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

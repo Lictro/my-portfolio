@@ -8,7 +8,11 @@ export function FunCard({ className }: { className?: string }) {
     <BentoCard
       variant="fun"
       className={`${className} relative group overflow-hidden`}
+      onClick={(e) => {
+        e.currentTarget.classList.toggle('is-active');
+      }}
     >
+      {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
           <path
@@ -23,11 +27,34 @@ export function FunCard({ className }: { className?: string }) {
           />
         </svg>
       </div>
+
+      {/* OVERLAY */}
+      <div
+        className="
+          absolute inset-0 z-20 flex items-center justify-center
+          bg-black/40 backdrop-blur-md
+          opacity-0 -translate-y-full
+          transition-all duration-500 ease-out
+
+          group-hover:opacity-100 group-hover:translate-y-0
+          group-focus-within:opacity-100 group-focus-within:translate-y-0
+          active:opacity-100 active:translate-y-0
+        "
+      >
+        <span className="text-[#efefd0] text-lg font-semibold tracking-widest">
+          COMING SOON
+        </span>
+      </div>
+
+      {/* CONTENT */}
       <div className="relative z-10 flex items-center justify-between h-full px-4">
         <h1 className="text-xl font-semibold text-[#efefd0]">Fun</h1>
+
         <ArrowUpRightIcon
           size={24}
-          className="transition-transform duration-300 ease-in-out text-[#efefd0] group-hover:text-[#9d4edd] group-hover:translate-x-1 group-hover:-translate-y-1"
+          className="transition-transform duration-300 ease-in-out text-[#efefd0]
+          group-hover:text-[#9d4edd]
+          group-hover:translate-x-1 group-hover:-translate-y-1"
         />
       </div>
     </BentoCard>

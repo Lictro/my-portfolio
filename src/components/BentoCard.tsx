@@ -5,7 +5,7 @@ type BentoCardProps = {
   children: React.ReactNode;
   className?: string;
   variant?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   direction?: 'row' | 'col';
 };
 

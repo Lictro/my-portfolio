@@ -17,7 +17,7 @@ const cards = [
   {
     Component: MeCard,
     className:
-      'lg:col-span-8 lg:row-span-4 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-4',
+      'lg:col-span-8 lg:row-span-4 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-5',
     componentClassName: 'p-8',
   },
   {

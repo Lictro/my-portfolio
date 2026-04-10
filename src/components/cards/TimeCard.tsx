@@ -38,7 +38,9 @@ export function TimeCard({ className }: { className?: string }) {
     return () => clearInterval(interval);
   }, []);
 
-  const visitorTimeZoneLabel = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const visitorTimeZoneLabel = Intl.DateTimeFormat()
+    .resolvedOptions()
+    .timeZone.replace('_', ' ');
   const myTimeZoneLabel = 'GMT-6';
 
   return (
