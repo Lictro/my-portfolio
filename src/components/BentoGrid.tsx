@@ -16,35 +16,60 @@ import { GuestbookCard } from './cards/GuestbookCard';
 const cards = [
   {
     Component: MeCard,
-    className: 'col-span-8 row-span-4',
+    className:
+      'lg:col-span-8 lg:row-span-4 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-4',
     componentClassName: 'p-8',
   },
   {
     Component: AboutCard,
-    className: 'col-span-4 row-span-6',
+    className:
+      'lg:col-span-4 lg:row-span-6 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-5',
     componentClassName: 'p-8',
   },
   {
     Component: TimeCard,
-    className: 'col-span-4 row-span-2',
+    className:
+      'lg:col-span-4 lg:row-span-2 md:col-span-6 md:row-span-2 sm:col-span-6 sm:row-span-2 col-span-12 row-span-2',
     componentClassName: 'p-4',
   },
-  { Component: ProjectsCard, className: 'col-span-4 row-span-1' },
-  { Component: MyStackCard, className: 'col-span-4 row-span-2' },
+  {
+    Component: ProjectsCard,
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
+  },
+  {
+    Component: MyStackCard,
+    className:
+      'lg:col-span-4 lg:row-span-2 md:col-span-6 md:row-span-2 sm:col-span-6 sm:row-span-2 col-span-12 row-span-2',
+  },
   {
     Component: SpotifyCard,
-    className: 'col-span-4 row-span-1',
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
     componentClassName: 'p-4',
   },
   // { Component: MyStackCard, className: 'col-span-4 row-span-1' },
   {
     Component: StatusCard,
-    className: 'col-span-4 row-span-1',
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
     componentClassName: 'p-4',
   },
-  { Component: GuestbookCard, className: 'col-span-4 row-span-1' },
-  { Component: FunCard, className: 'col-span-4 row-span-1' },
-  { Component: BuiltWithCard, className: 'col-span-4 row-span-1' },
+  {
+    Component: GuestbookCard,
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
+  },
+  {
+    Component: FunCard,
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
+  },
+  {
+    Component: BuiltWithCard,
+    className:
+      'lg:col-span-4 lg:row-span-1 md:col-span-6 md:row-span-1 sm:col-span-6 sm:row-span-1 col-span-12 row-span-1',
+  },
 ];
 
 export default function BentoGrid() {

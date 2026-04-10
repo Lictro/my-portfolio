@@ -79,7 +79,7 @@ export default function MeCard({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="flex items-center h-full">
+      <div className="hidden sm:flex items-center h-full">
         <div className="bg-teal-400/10 rounded-lg overflow-hidden">
           <Image
             src="/images/profile.png"
