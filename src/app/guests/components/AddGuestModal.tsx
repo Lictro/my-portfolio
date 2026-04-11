@@ -11,11 +11,13 @@ import { PencilIcon } from '@phosphor-icons/react';
 import CountrySelect from './CountrySelect';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import { Turnstile } from '@marsidev/react-turnstile';
+import { toast } from 'react-toastify';
 
 type Props = {
   open: boolean;
   onClose: () => void;
-  onAdd: (card: Guest) => void;
+  onAdd: (card: Guest, token: string) => void;
 };
 
 export default function AddGuestModal({ open, onClose, onAdd }: Props) {
@@ -24,6 +26,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
   const [message, setMessage] = useState('');
   const [editingAvatar, setEditingAvatar] = useState(false);
   const [avatarConfig, setAvatarConfig] = useState(initialConfig);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
 
   const buildAvatar = (cfg: any) =>
     createAvatar(notionists, {
@@ -45,7 +48,8 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
 
   const [avatarSvg, setAvatarSvg] = useState(buildAvatar(initialConfig));
 
-  const submit = async () => {
+ const submit = async () => {
+  try {
     const card: Guest = {
       id: nanoid(),
       name,
@@ -54,14 +58,21 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
       createdAt: new Date().toISOString(),
       config: avatarConfig,
     };
-    onAdd(card);
+
+    await onAdd(card, turnstileToken!);
+
     onClose();
     setName('');
     setCountry('');
     setMessage('');
-  };
+    setTurnstileToken(null);
+  } catch (err: any) {
+    toast.error(err.message || 'Failed to add guest. Please try again.');
+  }
+};
 
-  const isValid = name.trim() && country.trim() && message.trim();
+  const isValid =
+    name.trim() && country.trim() && message.trim() && turnstileToken;
 
   if (editingAvatar) {
     return (
@@ -144,6 +155,12 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                 {message.length}/100
               </p>
             </div>
+
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+            />
 
             <div className="flex justify-end gap-3 pt-2">
               <Dialog.Close className="opacity-70 hover:opacity-100 transition">

@@ -433,8 +433,8 @@ export default function GuestsPage() {
           <AddGuestModal
             open={open}
             onClose={() => setOpen(false)}
-            onAdd={async (guest) => {
-              await addGuest(guest);
+            onAdd={async (guest, token) => {
+              await addGuest(guest, token);
               await refetch();
             }}
           />

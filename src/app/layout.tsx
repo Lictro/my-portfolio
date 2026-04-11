@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
 import './globals.css';
 
 const inter = Inter({
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased magicpattern`}>
         {children}
         <SpeedInsights />
+        <ToastContainer />
       </body>
     </html>
   );
