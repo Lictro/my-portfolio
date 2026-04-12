@@ -1,16 +1,18 @@
 'use client';
 
 import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import { useState } from 'react';
+import clsx from 'clsx';
 import BentoCard from '../BentoCard';
 
 export function FunCard({ className }: { className?: string }) {
+  const [active, setActive] = useState(false);
+
   return (
     <BentoCard
       variant="fun"
-      className={`${className} relative group overflow-hidden`}
-      onClick={(e) => {
-        e.currentTarget.classList.toggle('is-active');
-      }}
+      className={clsx(className, 'relative group overflow-hidden')}
+      onClick={() => setActive((v) => !v)}
     >
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
@@ -30,16 +32,14 @@ export function FunCard({ className }: { className?: string }) {
 
       {/* OVERLAY */}
       <div
-        className="
+        className={clsx(
+          `
           absolute inset-0 z-20 flex items-center justify-center
           bg-black/40 backdrop-blur-md
-          opacity-0 -translate-y-full
           transition-all duration-500 ease-out
-
-          group-hover:opacity-100 group-hover:translate-y-0
-          group-focus-within:opacity-100 group-focus-within:translate-y-0
-          active:opacity-100 active:translate-y-0
-        "
+        `,
+          active ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+        )}
       >
         <span className="text-[#efefd0] text-lg font-semibold tracking-widest">
           COMING SOON
@@ -52,9 +52,12 @@ export function FunCard({ className }: { className?: string }) {
 
         <ArrowUpRightIcon
           size={24}
-          className="transition-transform duration-300 ease-in-out text-[#efefd0]
-          group-hover:text-[#9d4edd]
-          group-hover:translate-x-1 group-hover:-translate-y-1"
+          className={clsx(
+            `
+            transition-transform duration-300 ease-in-out text-[#efefd0]
+          `,
+            active && 'translate-x-1 -translate-y-1 text-[#9d4edd]'
+          )}
         />
       </div>
     </BentoCard>

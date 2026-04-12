@@ -48,28 +48,28 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
 
   const [avatarSvg, setAvatarSvg] = useState(buildAvatar(initialConfig));
 
- const submit = async () => {
-  try {
-    const card: Guest = {
-      id: nanoid(),
-      name,
-      country,
-      message,
-      createdAt: new Date().toISOString(),
-      config: avatarConfig,
-    };
+  const submit = async () => {
+    try {
+      const card: Guest = {
+        id: nanoid(),
+        name,
+        country,
+        message,
+        createdAt: new Date().toISOString(),
+        config: avatarConfig,
+      };
 
-    await onAdd(card, turnstileToken!);
+      await onAdd(card, turnstileToken!);
 
-    onClose();
-    setName('');
-    setCountry('');
-    setMessage('');
-    setTurnstileToken(null);
-  } catch (err: any) {
-    toast.error(err.message || 'Failed to add guest. Please try again.');
-  }
-};
+      onClose();
+      setName('');
+      setCountry('');
+      setMessage('');
+      setTurnstileToken(null);
+    } catch (err: any) {
+      toast.error(err.message || 'Failed to add guest. Please try again.');
+    }
+  };
 
   const isValid =
     name.trim() && country.trim() && message.trim() && turnstileToken;

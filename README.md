@@ -10,7 +10,7 @@ It’s created to feel more like a small product than a static site, with a focu
 
 The site includes interactive features like a custom guestbook, where users can leave messages. On the backend, I’ve implemented API routes, basic validation, and rate limiting to prevent spam and abuse.
 
-Overall, it’s a space where I build, experiment, and continuously improve both the technical side and the user experience. 
+Overall, it’s a space where I build, experiment, and continuously improve both the technical side and the user experience.
 
 ## Overview
 
