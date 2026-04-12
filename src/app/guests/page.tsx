@@ -407,7 +407,7 @@ export default function GuestsPage() {
             <EmptyState openModal={() => setOpen(true)} />
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-2">
                 {guestsWithAvatars.map((guest, idx) => (
                   <motion.div
                     key={guest.id}
