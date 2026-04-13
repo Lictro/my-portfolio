@@ -93,7 +93,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
       <Dialog.Portal>
         <Dialog.Overlay asChild>
           <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            className="hidden sm:block fixed inset-0 bg-black/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -103,20 +103,24 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
 
         <Dialog.Content asChild>
           <motion.div
-            className="fixed top-1/2 left-1/2 w-full sm:max-w-lg bg-[#111827] sm:rounded-2xl p-6 space-y-5 -translate-x-1/2 -translate-y-1/2"
+            className="fixed inset-0 w-full h-full bg-[#111827] p-6 space-y-5 flex flex-col justify-center sm:block sm:inset-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:max-w-lg sm:w-full sm:h-auto sm:rounded-2xl"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
           >
-            <Dialog.Title className="text-xl font-bold">
-              Create Postcard
+            <Dialog.Title className="text-xl font-bold sm:text-left text-center">
+              Drop a Message
             </Dialog.Title>
 
-            <div className="grid grid-cols-[96px_1fr] gap-4 items-start">
+            <div className="flex flex-col items-center gap-4 sm:grid sm:grid-cols-[96px_1fr] sm:items-start">
               <div
                 onClick={() => setEditingAvatar(true)}
-                className="relative cursor-pointer active:scale-[0.98] transition w-fit"
+                className="
+                  relative cursor-pointer active:scale-[0.98] transition
+                  w-fit
+                  mx-auto sm:mx-0
+                "
               >
                 {avatarSvg && (
                   <div className="w-27 h-27 overflow-hidden bg-black/30 [&>svg]:w-full [&>svg]:h-full">
@@ -129,7 +133,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 pl-4">
+              <div className="flex flex-col gap-3 sm:pl-4 w-full">
                 <input
                   placeholder="Name"
                   value={name}
