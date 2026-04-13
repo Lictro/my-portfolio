@@ -6,12 +6,16 @@ import BentoCard from '../BentoCard';
 export function TimeCard({ className }: { className?: string }) {
   const [localTime, setLocalTime] = useState('');
   const [gmt6Time, setGmt6Time] = useState('');
+  const [visitorTimeZoneLabel, setVisitorTimeZoneLabel] = useState('');
 
   useEffect(() => {
+    setVisitorTimeZoneLabel(
+      Intl.DateTimeFormat().resolvedOptions().timeZone.replace('_', ' ')
+    );
+
     const updateTime = () => {
       const now = new Date();
 
-      // User local time
       setLocalTime(
         now.toLocaleTimeString([], {
           hour: '2-digit',
@@ -19,7 +23,6 @@ export function TimeCard({ className }: { className?: string }) {
         })
       );
 
-      // GMT-6 (Central America)
       const gmt6 = new Date(
         now.toLocaleString('en-US', { timeZone: 'America/Tegucigalpa' })
       );
@@ -38,9 +41,6 @@ export function TimeCard({ className }: { className?: string }) {
     return () => clearInterval(interval);
   }, []);
 
-  const visitorTimeZoneLabel = Intl.DateTimeFormat()
-    .resolvedOptions()
-    .timeZone.replace('_', ' ');
   const myTimeZoneLabel = 'GMT-6';
 
   return (
@@ -53,7 +53,7 @@ export function TimeCard({ className }: { className?: string }) {
             {localTime}
           </p>
           <span className="text-xs text-muted-foreground">
-            {visitorTimeZoneLabel}
+            {visitorTimeZoneLabel || '...'}
           </span>
         </div>
       </div>

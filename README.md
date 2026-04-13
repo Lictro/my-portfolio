@@ -15,8 +15,8 @@ Overall, it’s a space where I build, experiment, and continuously improve both
 ## Overview
 
 - `/` — Home page.
-- `/writing` — Writing page.
-- `/workspace` — Workspace page.
+- `/projects` — Page to display the projects I worked on.
+- `/guests` — Social page to submit messages.
 - `/api` — API routes.
 
 ## Bento Cards
