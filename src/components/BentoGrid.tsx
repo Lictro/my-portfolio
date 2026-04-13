@@ -23,7 +23,7 @@ const cards = [
   {
     Component: AboutCard,
     className:
-      'lg:col-span-4 lg:row-span-6 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-5',
+      'lg:col-span-4 lg:row-span-6 md:col-span-12 md:row-span-4 sm:col-span-12 sm:row-span-4 col-span-12 row-span-6',
     componentClassName: 'p-8',
   },
   {
