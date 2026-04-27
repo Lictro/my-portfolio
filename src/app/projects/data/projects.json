@@ -11,9 +11,9 @@
       "React",
       "TypeScript",
       "Tailwind CSS",
-      "Supabase"
+      "Supabase" 
     ],
-    "liveUrl": "https://bookmark-manager-amt1we6dk-lictros-projects.vercel.app/",
+    "liveUrl": "https://bookmark-manager.luisalvarez.dev",
     "githubUrl": "https://github.com/Lictro/bookmark-manager",
     "featured": true
   },
@@ -86,5 +86,23 @@
     ],
     "liveUrl": "https://gominno.com/",
     "githubUrl": null
+  },
+  {
+    "id": 7,
+    "name": "Markdown Editor",
+    "description": "A markdown editor built with Next.js, React, and TypeScript, featuring a live preview pane and support for common markdown syntax to enhance writing productivity.",
+    "image": "/images/markdown-editor.png",
+    "year": "2026",
+    "madeAt": "Personal",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Phosphor"
+    ],
+    "liveUrl": "https://markdown-editor.luisalvarez.dev",
+    "githubUrl": "https://github.com/Lictro/markdown-editor",
+    "featured": true
   }
 ]

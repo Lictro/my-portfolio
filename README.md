@@ -2,9 +2,9 @@
 
 My personal website is a modern, app-like portfolio built with `Next.js`, `Tailwind CSS`, `Supabase`, `Firebase`, and deployed on `Vercel` to showcase my projects, experiments, and user interactions.\
 
-It is designed as a bento grid layout, inspired by the porfolio of Gianmarco Cavallo (Ladvace), focusing on modular sections that highlight content in a structured and visually balanced way.
+It is designed as a bento grid layout, inspired by the porfolio of `Gianmarco Cavallo (Ladvace)`, focusing on modular sections that highlight content in a structured and visually balanced way.
 
-The color palette and some UI components are inspired by the portfolio of Brittany Chiang, known for its clean aesthetics, strong contrast, and developer-focused design.
+The color palette and some UI components are inspired by the portfolio of `Brittany Chiang`, known for its clean aesthetics, strong contrast, and developer-focused design.
 
 It’s created to feel more like a small product than a static site, with a focus on performance, clean UI, and smooth interactions.
 
