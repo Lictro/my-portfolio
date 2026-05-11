@@ -65,6 +65,9 @@ export default function GuestsPage() {
         body: [msg.config.body],
         brows: [msg.config.brows],
         glasses: [msg.config.glasses],
+        gestureProbability: msg.config.gesture === 'none' ? 0 : 100,
+        beardProbability: msg.config.beard === 'none' ? 0 : 100,
+        glassesProbability: msg.config.glasses === 'none' ? 0 : 100,
         seed: msg.config.seed,
         size: 180,
       }).toString();

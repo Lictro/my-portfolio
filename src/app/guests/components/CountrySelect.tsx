@@ -55,7 +55,7 @@ export default function CountrySelect({ value, onChange }: Props) {
           items-center
           justify-between
           focus:ring-2
-          focus:ring-[#64ffda]`
+          focus:ring-accent`
         )}
       >
         {selected ? (

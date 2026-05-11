@@ -2,8 +2,7 @@
 import { ArrowSquareOutIcon, GithubLogoIcon } from '@phosphor-icons/react';
 import { Project } from '../types/project';
 import TechBadge from './TechBadge';
-import Image from "next/image";
-
+import Image from 'next/image';
 
 export default function FeaturedProjectCard({ project }: { project: Project }) {
   return (

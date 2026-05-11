@@ -132,11 +132,17 @@ export default function AvatarEditorFullscreen({
       style={{ background: `#${darkenHex(config.background, 40)}` }}
     >
       {/* HEADER bg-[#${darkenHex(config.background, 40)}] */}
-      <div className="flex justify-between items-center p-4">
-        <button onClick={onClose}>Back</button>
+      <div className="flex justify-end items-center gap-3 p-4">
+        <button
+          onClick={onClose}
+          className="rounded border bg-[#0f172a] text-accent px-4 py-2 font-medium transition duration-200 ease-out hover:border-accent hover:bg-[#0f172a] hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+        >
+          Back
+        </button>
+
         <button
           onClick={() => onSave(config)}
-          className="bg-[#64ffda] text-black px-5 py-2 rounded-xl"
+          className="rounded bg-accent px-4 py-2 font-semibold text-black shadow-lg shadow-accent/20 transition duration-200 ease-out hover:bg-[#4dd8b9] hover:shadow-[#4dd8b9]/30 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
         >
           Save
         </button>
@@ -158,7 +164,7 @@ export default function AvatarEditorFullscreen({
             onClick={() => setTab(t)}
             className={`py-3 whitespace-nowrap transition ${
               tab === t
-                ? 'border-b-2 border-[#64ffda]'
+                ? 'border-b-2 border-accent'
                 : 'opacity-50 hover:opacity-80'
             }`}
           >
@@ -182,7 +188,7 @@ export default function AvatarEditorFullscreen({
                   transition
                   ${
                     selected
-                      ? 'ring-2 ring-[#64ffda] bg-[#1f2937]'
+                      ? 'ring-2 ring-accent bg-[#1f2937]'
                       : 'bg-[#111827] hover:bg-[#1f2937]'
                   }
                 `}

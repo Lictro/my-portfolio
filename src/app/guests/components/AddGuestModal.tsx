@@ -128,7 +128,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                   </div>
                 )}
 
-                <div className="absolute -bottom-2 -right-2 bg-[#64ffda] text-black rounded-full p-2 shadow-lg border-2 border-[#111827] flex items-center justify-center">
+                <div className="absolute -bottom-2 -right-2 bg-accent text-black rounded-full p-2 shadow-lg border-2 border-[#111827] flex items-center justify-center">
                   <PencilIcon size={16} />
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                   placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full p-3 rounded bg-black/30 outline-none focus:ring-2 focus:ring-[#64ffda]"
+                  className="w-full p-3 rounded bg-black/30 outline-none focus:ring-2 focus:ring-accent"
                 />
 
                 <CountrySelect
@@ -153,7 +153,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                 placeholder="Leave your message..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value.slice(0, 100))}
-                className="w-full p-3 rounded bg-black/30 h-28 outline-none resize-none pr-16 focus:ring-2 focus:ring-[#64ffda]"
+                className="w-full p-3 rounded bg-black/30 h-28 outline-none resize-none pr-16 focus:ring-2 focus:ring-accent"
               />
               <p className="absolute bottom-2 right-3 text-sm text-gray-400">
                 {message.length}/100
@@ -175,7 +175,7 @@ export default function AddGuestModal({ open, onClose, onAdd }: Props) {
                 onClick={submit}
                 disabled={!isValid}
                 className={clsx(
-                  'bg-[#64ffda] text-black px-4 py-2 rounded font-medium transition hover:brightness-95 active:scale-[0.98]',
+                  'bg-accent text-black px-4 py-2 rounded font-medium transition hover:brightness-95 active:scale-[0.98]',
                   {
                     'disabled:opacity-40 disabled:cursor-not-allowed': !isValid,
                   }

@@ -35,7 +35,7 @@ export default function Header({ pageName, onOpen }: Props) {
           {/* Desktop */}
           <button
             onClick={onOpen}
-            className="hidden sm:inline-flex px-4 py-2.5 bg-[#64ffda] text-[#0a192f] rounded-lg font-medium transition hover:brightness-95 active:scale-[0.98]"
+            className="hidden sm:inline-flex px-4 py-2.5 bg-accent text-[#0a192f] rounded-lg font-medium transition hover:brightness-95 active:scale-[0.98]"
           >
             Leave a Message
           </button>
@@ -43,7 +43,7 @@ export default function Header({ pageName, onOpen }: Props) {
           {/* Mobile */}
           <button
             onClick={onOpen}
-            className="inline-flex sm:hidden w-14 h-14 items-center justify-center rounded-full bg-[#64ffda] text-[#0a192f] shadow-lg transition hover:brightness-95 active:scale-95"
+            className="inline-flex sm:hidden w-14 h-14 items-center justify-center rounded-full bg-accent text-[#0a192f] shadow-lg transition hover:brightness-95 active:scale-95"
             aria-label="Leave a Message"
           >
             <PlusIcon size={28} weight="bold" />
